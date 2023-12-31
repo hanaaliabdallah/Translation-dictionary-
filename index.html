@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Language Translator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    #wordInput {
+      margin-bottom: 10px;
+    }
+    #languageSelect {
+      margin-bottom: 10px;
+    }
+    #translationResult {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Language Translator</h1>
+  <input type="text" id="wordInput" placeholder="Enter a word or phrase">
+  <select id="languageSelect">
+    <option value="">Select a language</option>
+    <option value="de">German</option>
+    <option value="fr">French</option>
+    <option value="es">Spanish</option>
+    <!-- Add more language options here -->
+  </select>
+  <button onclick="translate()">Translate</button>
+  <p id="translationResult"></p>
+
+  <script>
+    function translate() {
+      var word = document.getElementById('wordInput').value;
+      var language = document.getElementById('languageSelect').value;
+
+      if (word === '') {
+        alert('Please enter a word or phrase.');
+        return;
+      }
+
+      if (language === '') {
+        alert('Please select a language.');
+        return;
+      }
+
+      var translation;
+      switch (language) {
+        case 'de':
+          translation = translateToGerman(word);
+          break;
+        case 'fr':
+          translation = translateToFrench(word);
+          break;
+        case 'es':
+          translation = translateToSpanish(word);
+          break;
+        // Add more cases for additional languages
+        default:
+          translation = 'Translation not available for the selected language.';
+      }
+
+      document.getElementById('translationResult').innerHTML = translation;
+    }
+
+    function translateToGerman(word) {
+      // Translation logic for German
+      if (word === 'I love you') {
+        return 'Ich liebe dich';
+      }
+      // Add more translation logic for German here
+
+      // Return the original word if no translation is available
+      return word;
+    }
+
+    function translateToFrench(word) {
+      // Translation logic for French
+      if (word === 'I love you') {
+        return 'Je t\'aime';
+      }
+      // Add more translation logic for French here
+
+      // Return the original word if no translation is available
+      return word;
+    }
+
+    function translateToSpanish(word) {
+      // Translation logic for Spanish
+      if (word === 'I love you') {
+        return 'Te amo';
+      }
+      // Add more translation logic for Spanish here
+
+      // Return the original word if no translation is available
+      return word;
+    }
+  </script>
+</body>
+</html>
